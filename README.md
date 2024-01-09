@@ -1,6 +1,6 @@
 # SightGuide
 
-[Website](sightguide.netlify.app)
+[Website](https://sightguide.netlify.app)
 
 [Projekt Board](https://github.com/users/slane1/projects/1/views/1)
 
