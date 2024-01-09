@@ -28,7 +28,7 @@ export default function Data() {
     <div>
       <p>Hallo Welt</p>
       {entries.map((field) => {
-        // console.log(field.fields.stadt);
+        console.log(field.fields);
         // console.log(field.fields.geolocation);
         return (
           <div key={field.fields.id}>
@@ -40,20 +40,24 @@ export default function Data() {
                 " " +
                 field.fields.geolocation.lat}
             </li>
-            <li>
-              {field.fields.stadt.long +
-                " " +
-                field.fields.stadt.lat}
-            </li>
+            <li>{field.fields.stadt.long + " " + field.fields.stadt.lat}</li>
             {/* <li>{field.fields.land}</li> */}
             <li>{field.fields.bauzeit}</li>
             <li>{field.fields.bauherr}</li>
             <li>{field.fields.epoche}</li>
-            {/* <img
-              src={field.fields.images[0]}
-              alt={field.fields.name}
-              width="50%"
-            /> */}
+            <div>
+              {field.fields.images.map((img) =>
+              {
+                return(
+                  <img
+                  src={img.fields.file.url}
+                  alt={img.fields.file.fileName}
+                  width="50%"
+                  />
+                  )
+              }
+              )}
+            </div>
             <li>{field.fields.beschreibung}</li>
           </div>
         );
