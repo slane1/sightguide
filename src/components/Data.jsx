@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { createClient } from "contentful";
 
-const client = createClient({
-  space: "k4qzcaarqjx8",
-  accessToken: "hHDWVwqsUN9SVlETsioTZGgR4NogPWCdvZFGaldqm9o",
-});
-
 export default function Data() {
+  const client = createClient({
+    space: import.meta.env.VITE_CONTENTFUL_SPACE_ID,
+    accessToken: import.meta.env.VITE_CONTENTFUL_ACCESS_TOKEN,
+  });
+
   const [entries, setEntries] = useState([]);
   const [loading, setIsLoading] = useState(true);
 
@@ -46,17 +46,15 @@ export default function Data() {
             <li>{field.fields.bauherr}</li>
             <li>{field.fields.epoche}</li>
             <div>
-              {field.fields.images.map((img) =>
-              {
-                return(
+              {field.fields.images.map((img) => {
+                return (
                   <img
-                  src={img.fields.file.url}
-                  alt={img.fields.file.fileName}
-                  width="50%"
+                    src={img.fields.file.url}
+                    alt={img.fields.file.fileName}
+                    width="50%"
                   />
-                  )
-              }
-              )}
+                );
+              })}
             </div>
             <li>{field.fields.beschreibung}</li>
           </div>
