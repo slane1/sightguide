@@ -5,8 +5,8 @@ export default function Search(){
             <form action="">
                 <input type="text" />
                 <button>Search</button>
-                <button>Filter</button></form>
+                <button>Filter</button>
+            </form>
         </div>
     );
-
 }

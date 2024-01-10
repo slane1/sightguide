@@ -23,5 +23,11 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
     "vite": "^5.0.8"
+  },
+  "react-dotenv": {
+    "whitelist": [
+      "CONTENTFUL_API_KEY",
+      "CONTENTFUL_API_SPACE"
+    ]
   }
 }

@@ -1,8 +1,8 @@
 import { useState } from "react";
-import Data from "./components/Data";
-import { Header } from "./components/Header";
+import Data from "./components/Data.jsx";
+import Header from "./components/Header.jsx";
 
-function App() {
+export default function App() {
 
   return (
     <>
@@ -12,5 +12,3 @@ function App() {
     </>
   );
 }
-
-export default App;
