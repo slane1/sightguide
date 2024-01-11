@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { createClient } from "contentful";
+import {searchQuery} from "../util/Utility"
 
 export default function Data() {
   const client = createClient({
@@ -28,8 +29,6 @@ export default function Data() {
     <div>
       <p>Hallo Welt</p>
       {entries.map((field) => {
-        console.log(field.fields);
-        // console.log(field.fields.geolocation);
         return (
           <div key={field.fields.id}>
             <li>{field.fields.id}</li>
