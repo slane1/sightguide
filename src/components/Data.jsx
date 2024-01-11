@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { createClient } from "contentful";
-import {SearchQuery} from "../util/Utility"
+import {searchQuery} from "../util/Utility"
 
 export default function Data() {
   const client = createClient({
@@ -20,26 +20,15 @@ export default function Data() {
         setIsLoading(false);
       })
       .catch((error) => {
-        // console.error(error);
+        console.error(error);
         setIsLoading(false);
       });
   }, []);
 
-
-
-  {setTimeout(console.log("Timer done"), 50000)}
-  {setTimeout
-    (console.log(
-      SearchQuery(entries, "Kolosseum")
-      ), 5000
-      )
-    }
   return (
     <div>
       <p>Hallo Welt</p>
       {entries.map((field) => {
-        // console.log(field.fields);
-        // console.log(field.fields.geolocation);
         return (
           <div key={field.fields.id}>
             <li>{field.fields.id}</li>
