@@ -8,7 +8,7 @@ export default function Search(){
                 <input type="text" />
                 <button>Search</button>
                 <button>Filter</button>
-                <Sort />
+                <button>Sort</button>
             </form>
         </div>
     );
