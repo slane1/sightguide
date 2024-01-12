@@ -1,3 +1,5 @@
+import { searchQuery } from '../util/Utility'
+
 
 export default function Search(){
 
@@ -5,9 +7,8 @@ export default function Search(){
         <div>
             <form action="">
                 <input type="text" />
-                <button>Search</button>
-                <button>Filter</button>
-                <button>Sort A-Z</button>
+                <button onClick={searchQuery()}>Search</button>
+                {/* <button>Filter</button> */}
             </form>
         </div>
     );
