@@ -1,24 +1,46 @@
 import { useState, useEffect } from "react";
+import { createClient } from "contentful";
+import ListItem from "./ListItem";
+import Data from "./Data";
 
 export default function Sort() {
+
+    const client = createClient({
+        space: import.meta.env.VITE_CONTENTFUL_SPACE_ID,
+        accessToken: import.meta.env.VITE_CONTENTFUL_ACCESS_TOKEN,
+      });
     
-    function List (props) {
-        const [entries, setEntries] = useState([])
+      const [entries, setEntries] = useState([]);
+      const [loading, setIsLoading] = useState(true);
+    
+      useEffect(() => {
+        setIsLoading(true);
+        client
+          .getEntries()
+          .then((response) => {
+            setEntries(response.items);
+            setIsLoading(false);
+          })
+          .catch((error) => {
+            console.error(error);
+            setIsLoading(false);
+          });
+      }, []);
 
         useEffect (() => {
-            setSampleData(props.sampleData)
-        }, [])
+            setEntries(entries)
+        })
 
         function handleSort() {
             const sortedData = [...entries].sort((a,b) => {
                 return a.name > b.name ? 1 : -1
             })
-            setSampleData(sortedData)
+            setEntries(sortedData)
         }
 
         const listComponents = entries.map((fields) => {
-            return <ListItem key={object.number} first={object.first}
-            last={object.last} number={object.number}/>
+            return <St key={fields.name} first={fields.name}
+            last={fields.name} number={fields.id}/>
         })
 
         return (
@@ -30,4 +52,3 @@ export default function Sort() {
             </>
         )
     }
-}

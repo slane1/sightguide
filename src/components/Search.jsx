@@ -1,3 +1,5 @@
+import Sort from "./Sort";
+
 export default function Search(){
 
     return (
@@ -6,7 +8,7 @@ export default function Search(){
                 <input type="text" />
                 <button>Search</button>
                 <button>Filter</button>
-                <button onClick={handleSort} id="sort-a-z">Sort A-Z</button>
+                <Sort />
             </form>
         </div>
     );
