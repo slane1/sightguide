@@ -1,5 +1,5 @@
 export function sortQuery(entries) {
-    const sortResults = entries.filter((a) => a.name > 0)
+    const sortResults = entries
     .sort((a,b) => a.name > b.name ? 1 : -1)
     return sortResults;
 }
