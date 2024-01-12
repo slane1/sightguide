@@ -1,4 +1,3 @@
-import Sort from "./Sort";
 
 export default function Search(){
 
@@ -8,7 +7,7 @@ export default function Search(){
                 <input type="text" />
                 <button>Search</button>
                 <button>Filter</button>
-                <button>Sort</button>
+                <button>Sort A-Z</button>
             </form>
         </div>
     );

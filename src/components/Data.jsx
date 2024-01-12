@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { createClient } from "contentful";
 import {searchQuery} from "../util/Utility"
 import {sortQuery} from "../util/Sort";
-import Sort from "./Sort";
 
 export default function Data() {
   const client = createClient({
