@@ -37,7 +37,7 @@ export default function App() {
   return (
     <>
       <Header entries={entries}/>
-      <h1>Sightguide</h1>
+      <h1 className="text-white">Sightguide</h1>
       {loading ? (
       <p>Loading...</p>
       ) : ( <ListView entries={entries} />)}
