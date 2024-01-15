@@ -36,7 +36,7 @@ export default function App() {
 
   return (
     <>
-      {/* <Header /> */}
+      <Header entries={entries}/>
       <h1>Sightguide</h1>
       {loading ? (
       <p>Loading...</p>

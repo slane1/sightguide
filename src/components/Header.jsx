@@ -1,10 +1,10 @@
 import Search from "./Search.jsx";
 
-export default function Header(){
+export default function Header({entries}){
 
     return (
         <div>
-        <Search />
+        <Search entries={entries}/>
         </div>
     );
 }
