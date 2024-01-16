@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { createClient } from "contentful";
 import Detail from "./Detail";
-import {searchQuery} from "../util/Utility"
-import {sortQuery} from "../util/Sort";
+// import {searchQuery} from "../util/Utility"
+// import {sortQuery} from "../util/Sort";
 
 export default function Data() {
   const client = createClient({
