@@ -5,6 +5,7 @@ import { createClient } from "contentful";
 import Header from "./components/Header.jsx";
 import ListView from "./components/ListView.jsx"
 import Footer from "./components/Footer.jsx";
+import Data from "./components/Data.jsx";
 
 export default function App() {
 
@@ -37,7 +38,7 @@ export default function App() {
   return (
     <>
       <Header entries={entries}/>
-      <h1 className="text-white">Sightguide</h1>
+      <h1 className="text-black">Sightguide</h1>
       {loading ? (
       <p>Loading...</p>
       ) : ( <ListView entries={entries} />)}

@@ -1,3 +1,3 @@
 export default function ImageGallery() {
-    return ("");
+  return "";
 }
