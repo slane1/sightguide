@@ -1,3 +1,5 @@
+import Map from "./Map";
+
 export default function ListItem({ item }) {
   return (
     <div className="detail" key={item.fields.id}>
@@ -12,13 +14,13 @@ export default function ListItem({ item }) {
         <li>{item.fields.bauzeit}</li>
         <li>{item.fields.bauherr}</li>
       </div>
-      <div className="c">
-        {console.log(item.fields.images[0])}
+      <div className="">
         <img
           src={item.fields.images[0].fields.file.url}
           alt={item.fields.images[0].fields.file.fileName}
         />
-       </div>
+      </div>
+      <Map geolocation={item.fields.geolocation} />
     </div>
   );
 }

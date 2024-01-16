@@ -32,7 +32,7 @@ export default function ListView() {
       {entries.map((item) => {
         // console.log(item.fields);
         // console.log(item.fields.geolocation);
-        return <ListItem item={item} />;
+        return <ListItem item={item} key={item.fields.id}/>;
       })}
     </div>
   );
