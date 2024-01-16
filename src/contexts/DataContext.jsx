@@ -2,11 +2,11 @@ import { createContext, useEffect, useState } from "react";
 import { createClient } from "contentful";
 export const DataContext = createContext();
 
-export default function DataContextProvider({children}) {
+export default function DataContextProvider({ children }) {
 // Setze gemeinsame useStates
     const [entries, setEntries] = useState([]);
     const [loading, setIsLoading] = useState(true);
-
+    const [searchEntries, setSearchEntries] = useState([])
 // Erzeuge client für API abfrage
     const client = createClient({
         space: import.meta.env.VITE_CONTENTFUL_SPACE_ID,
@@ -37,7 +37,9 @@ export default function DataContextProvider({children}) {
             entries, 
             setEntries, 
             loading, 
-            setIsLoading
+            setIsLoading,
+            searchEntries,
+            setSearchEntries
             }}
         >
         {children}
