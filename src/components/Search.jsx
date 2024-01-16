@@ -9,8 +9,8 @@ const e = "Kolloseum"
         <div>
             <form action="">
                 <input type="text" />
-                <button onClick={searchQuery(entries,e)}>Search</button>
-                <button onClick={sortQuery(entries)}>Sort A-Z</button>
+                <button onClick={() =>{searchQuery(entries,e)}}>Search</button>
+                <button onClick={() =>{sortQuery(entries)}}>Sort A-Z</button>
             </form>
         </div>
     );
