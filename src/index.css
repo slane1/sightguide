@@ -1,7 +1,8 @@
+/* npx tailwindcss -i ./src/input.css -o ./src/output.css --watch */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* npx tailwindcss -i ./src/input.css -o ./src/output.css --watch */
+
 body {
   background-color: #fff;
 }
@@ -32,7 +33,3 @@ body {
     width: 200px;
   }
 }
-
-/* body {
-  background-color: #4d9476;
-} */

@@ -1,5 +1,3 @@
-import Map from "./Map";
-
 export default function ListItem({ item }) {
   return (
     <div className="detail" key={item.fields.id}>
@@ -20,7 +18,6 @@ export default function ListItem({ item }) {
           alt={item.fields.images[0].fields.file.fileName}
         />
       </div>
-      <Map geolocation={item.fields.geolocation} />
     </div>
   );
 }

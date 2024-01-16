@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import { createClient } from "contentful";
 import ListItem from "./ListItem";
-import { searchQuery } from "../util/Utility";
-import { sortQuery } from "../util/Sort";
 
 export default function ListView() {
   const client = createClient({
@@ -30,9 +28,7 @@ export default function ListView() {
   return (
     <div>
       {entries.map((item) => {
-        // console.log(item.fields);
-        // console.log(item.fields.geolocation);
-        return <ListItem item={item} key={item.fields.id}/>;
+        return <ListItem item={item} key={item.fields.id} />;
       })}
     </div>
   );
