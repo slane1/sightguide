@@ -27,7 +27,7 @@ export default function App() {
       .then((response) => {
         setEntries(response.items);
         setIsLoading(false);
-        console.log(response.items);
+        // console.log(response.items);
       })
       .catch((error) => {
         console.error(error);

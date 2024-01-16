@@ -1,3 +1,5 @@
+import Map from "./Map";
+
 export default function Detail({ item }) {
   return (
     <div className="detail" key={item.fields.id}>
@@ -13,13 +15,15 @@ export default function Detail({ item }) {
         <li>{item.fields.bauherr}</li>
         <li>{item.fields.beschreibung}</li>
       </div>
-      <div className="c">
+      <div className="c visual">
         {item.fields.images.map((img) => {
           return (
             <img src={img.fields.file.url} alt={img.fields.file.fileName} />
           );
         })}
+      <Map geolocation={geolocation} />
       </div>
+
     </div>
   );
 }
