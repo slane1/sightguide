@@ -10,7 +10,7 @@ export default function App() {
 
   return (
     <>
-      <Header/>
+      {/* <Header/> */}
         <h1 className=" p-11   font-Poppins  sm:text-3x1 md:text-6xl ">Sightguide</h1>
         
         {loading ? (
