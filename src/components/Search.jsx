@@ -12,7 +12,7 @@ function searchQuery(parameter) {
         .filter(item => Object.values(item.fields).includes(parameter));
     const resultsArray = results.map(result => result);
     setSearchEntries(resultsArray);
-    return resultsArray;
+    // return resultsArray;
 }
 
     return (
