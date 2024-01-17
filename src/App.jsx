@@ -37,11 +37,16 @@ export default function App() {
 
   return (
     <>
+
       <Header entries={entries}/>
-      <h1 className="text-black">Sightguide</h1>
-      {loading ? (
-      <p>Loading...</p>
-      ) : ( <ListView entries={entries} />)}
+        <h1 className=" p-11   font-Poppins  sm:text-3x1 md:text-6xl ">Sightguide</h1>
+        
+        {loading ? (
+        <p>Loading...</p>
+        ) : ( <ListView entries={entries} />)}
+        
+
+
       <Footer />
     </>
   );
