@@ -26,7 +26,7 @@ export default function ListView() {
   }, []);
 
   return (
-    <div>
+    <div className="grid  md:grid-cols-1 lg:grid-cols-6 gap-8 ">
       {entries.map((item) => {
         return <ListItem item={item} key={item.fields.id} />;
       })}
