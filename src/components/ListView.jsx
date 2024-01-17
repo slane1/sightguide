@@ -1,29 +1,17 @@
-import { useState, useEffect } from "react";
-import { createClient } from "contentful";
-import ListItem from "./ListItem";
+import React, { useContext, useEffect, useState } from 'react';
+import { DataContext } from '../contexts/DataContext';
+import ListItem from './ListItem';
 
 export default function ListView() {
-  const client = createClient({
-    space: import.meta.env.VITE_CONTENTFUL_SPACE_ID,
-    accessToken: import.meta.env.VITE_CONTENTFUL_ACCESS_TOKEN,
-  });
-
-  const [entries, setEntries] = useState([]);
-  const [loading, setIsLoading] = useState(true);
+  const { entries, searchEntries, displayEntries, setDisplayEntries } = useContext(DataContext);
 
   useEffect(() => {
-    setIsLoading(true);
-    client
-      .getEntries()
-      .then((response) => {
-        setEntries(response.items);
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        console.error(error);
-        setIsLoading(false);
-      });
-  }, []);
+    if (searchEntries.length > 0) {
+      setDisplayEntries(searchEntries);
+    } else {
+      setDisplayEntries(entries);
+    }
+  }, [entries, searchEntries]);
 
   return (
     <div className="grid  md:grid-cols-1 lg:grid-cols-6 gap-8 ">

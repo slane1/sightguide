@@ -7,6 +7,7 @@ export default function DataContextProvider({ children }) {
     const [entries, setEntries] = useState([]);
     const [loading, setIsLoading] = useState(true);
     const [searchEntries, setSearchEntries] = useState([])
+    const [displayEntries, setDisplayEntries] = useState([]);
 // Erzeuge client für API abfrage
     const client = createClient({
         space: import.meta.env.VITE_CONTENTFUL_SPACE_ID,
@@ -42,7 +43,9 @@ export default function DataContextProvider({ children }) {
             loading, 
             setIsLoading,
             searchEntries,
-            setSearchEntries
+            setSearchEntries,
+            displayEntries,
+            setDisplayEntries
             }}
         >
         {children}
