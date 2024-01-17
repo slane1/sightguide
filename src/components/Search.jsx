@@ -1,16 +1,27 @@
-import { sortQuery } from '../util/Sort';
-import { searchQuery } from '../util/Utility'
+import React, { useContext } from 'react';
+import { DataContext } from '../contexts/DataContext'
+
+export default function Search(){
+const { entries, setSearchEntries } = useContext(DataContext);
+const e = "Rom";
 
 
-export default function Search({entries}){
-const e = "Kolloseum"
+function searchQuery(parameter) {
+    const results = entries
+        .filter(item => Object.values(item.fields).includes(parameter));
+    const resultsObject = {};
+    results.forEach((result, sid) => {
+        resultsObject[`sid${sid + 1}`] = result.fields;
+    });
+
+    return console.log("results", resultsObject.sid1);
+}
 
     return (
         <div>
             <form action="">
                 <input type="text" />
-                <button onClick={() =>{searchQuery(entries,e)}}>Search</button>
-                <button onClick={() =>{sortQuery(entries)}}>Sort A-Z</button>
+                <button onClick={() =>{searchQuery(e)}}>Search</button>
             </form>
         </div>
     );
