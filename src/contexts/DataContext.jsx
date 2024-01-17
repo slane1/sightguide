@@ -22,7 +22,7 @@ export default function DataContextProvider({ children }) {
             .then((response) => {
         setEntries(response.items);
         setIsLoading(false);
-        console.log(response.items);
+        // console.log(response.items);
         })
         .catch((error) => {
         console.error(error);

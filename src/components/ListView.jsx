@@ -5,7 +5,16 @@ import ListItem from './ListItem';
 export default function ListView() {
   const { entries, searchEntries, displayEntries, setDisplayEntries } = useContext(DataContext);
 
+  // useEffect(() => {
+  //   if (searchEntries.length > 0) {
+  //     setDisplayEntries(searchEntries);
+  //   } else {
+  //     setDisplayEntries(entries);
+  //   }
+  // }, [entries, searchEntries]);
   useEffect(() => {
+    console.log("Entries: ", entries);
+    console.log("Search Entries: ", searchEntries);
     if (searchEntries.length > 0) {
       setDisplayEntries(searchEntries);
     } else {
