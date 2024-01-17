@@ -12,6 +12,7 @@ export default function ListView() {
   //     setDisplayEntries(entries);
   //   }
   // }, [entries, searchEntries]);
+  
   useEffect(() => {
     console.log("Entries: ", entries);
     console.log("Search Entries: ", searchEntries);
