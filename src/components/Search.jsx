@@ -6,15 +6,6 @@ const { entries, setSearchEntries, searchEntries } = useContext(DataContext);
 const e = "Rom";
 
 
-// function searchQuery(parameter) {
-//     const results = entries
-//         .filter(item => Object.values(item.fields).includes(parameter));
-//     const resultsObject = {};
-//     results.forEach((result, sid) => {
-//         resultsObject[`sid${sid + 1}`] = result.fields;
-//     });
-//     return setSearchEntries(resultsObject);
-// }
 function searchQuery(parameter) {
     const results = entries
         .filter(item => Object.values(item.fields).includes(parameter));
