@@ -12,6 +12,9 @@ export default function ListView() {
       const filteredEntries = entries.filter(
         (item) =>
           item.fields.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          item.fields.stadt.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          item.fields.land.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          item.fields.epoche.toLowerCase().includes(searchTerm.toLowerCase()) ||
           item.fields.bauzeit
             .toLowerCase()
             .includes(searchTerm.toLowerCase()) ||
