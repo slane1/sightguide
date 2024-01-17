@@ -7,6 +7,7 @@ export default function DataContextProvider({ children }) {
     const [entries, setEntries] = useState([]);
     const [loading, setIsLoading] = useState(true);
     const [searchEntries, setSearchEntries] = useState([])
+    const [displayEntries, setDisplayEntries] = useState([]);
 // Erzeuge client für API abfrage
     const client = createClient({
         space: import.meta.env.VITE_CONTENTFUL_SPACE_ID,
@@ -15,18 +16,21 @@ export default function DataContextProvider({ children }) {
 
 // Lade Daten via API in entries
     useEffect(() => {
-        setIsLoading(true);
-        client
+        const fetchData = async () => {
+            setIsLoading(true);
+            client
             .getEntries()
             .then((response) => {
-        setEntries(response.items);
-        setIsLoading(false);
-        console.log(response.items);
-        })
-        .catch((error) => {
-        console.error(error);
-        setIsLoading(false);
-        });
+                setEntries(response.items);
+                setIsLoading(false);
+                console.log(response.items);
+            })
+            .catch((error) => {
+                console.error(error);
+                setIsLoading(false);
+            });
+        }
+        fetchData();
     }, []);
 
 
@@ -39,7 +43,9 @@ export default function DataContextProvider({ children }) {
             loading, 
             setIsLoading,
             searchEntries,
-            setSearchEntries
+            setSearchEntries,
+            displayEntries,
+            setDisplayEntries
             }}
         >
         {children}
