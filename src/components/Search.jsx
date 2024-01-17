@@ -2,19 +2,25 @@ import React, { useContext } from 'react';
 import { DataContext } from '../contexts/DataContext'
 
 export default function Search(){
-const { entries, setSearchEntries } = useContext(DataContext);
+const { entries, setSearchEntries, searchEntries } = useContext(DataContext);
 const e = "Rom";
 
 
+// function searchQuery(parameter) {
+//     const results = entries
+//         .filter(item => Object.values(item.fields).includes(parameter));
+//     const resultsObject = {};
+//     results.forEach((result, sid) => {
+//         resultsObject[`sid${sid + 1}`] = result.fields;
+//     });
+//     return setSearchEntries(resultsObject);
+// }
 function searchQuery(parameter) {
     const results = entries
         .filter(item => Object.values(item.fields).includes(parameter));
-    const resultsObject = {};
-    results.forEach((result, sid) => {
-        resultsObject[`sid${sid + 1}`] = result.fields;
-    });
-
-    return console.log("results", resultsObject.sid1);
+    const resultsArray = results.map(result => result);
+    setSearchEntries(resultsArray);
+    return resultsArray;
 }
 
     return (
