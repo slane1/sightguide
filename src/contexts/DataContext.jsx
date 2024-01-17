@@ -16,18 +16,21 @@ export default function DataContextProvider({ children }) {
 
 // Lade Daten via API in entries
     useEffect(() => {
-        setIsLoading(true);
-        client
+        const fetchData = async () => {
+            setIsLoading(true);
+            client
             .getEntries()
             .then((response) => {
-        setEntries(response.items);
-        setIsLoading(false);
-        console.log(response.items);
-        })
-        .catch((error) => {
-        console.error(error);
-        setIsLoading(false);
-        });
+                setEntries(response.items);
+                setIsLoading(false);
+                console.log(response.items);
+            })
+            .catch((error) => {
+                console.error(error);
+                setIsLoading(false);
+            });
+        }
+        fetchData();
     }, []);
 
 

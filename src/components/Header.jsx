@@ -7,12 +7,10 @@ const { loading } = useContext(DataContext);
 
     
     return (
-        <>
+        <div className="mt-12">
         {loading ? (
             <p>Loading...</p>
             ) : ( <Search />)}
-        <div>
         </div>
-        </>
     );
 }

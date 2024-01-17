@@ -14,10 +14,10 @@ export default function ListView() {
   }, [entries, searchEntries]);
 
   return (
-    <div>
-      {displayEntries.map((item) => (
-        <ListItem item={item} key={item.fields.id} />
-      ))}
+    <div className="grid  md:grid-cols-1 lg:grid-cols-6 gap-8 ">
+      {entries.map((item) => {
+        return <ListItem item={item} key={item.fields.id} />;
+      })}
     </div>
   );
 }
