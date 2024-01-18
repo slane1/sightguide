@@ -24,12 +24,12 @@ body {
   border-radius: 15px;
   margin: 2em;
   padding: 1em;
+}
 
-  && li {
-    list-style: none;
-  }
+.detail li {
+  list-style: none;
+}
 
-  && img {
-    width: 200px;
-  }
+.detail img {
+  width: 200px;
 }

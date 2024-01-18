@@ -2,12 +2,13 @@ import { createContext, useEffect, useState } from "react";
 import { createClient } from "contentful";
 export const DataContext = createContext();
 
-export default function DataContextProvider({children}) {
+export default function DataContextProvider({ children }) {
 // Setze gemeinsame useStates
     const [entries, setEntries] = useState([]);
     const [loading, setIsLoading] = useState(true);
-
-// Erzeuge client für API abfrage
+    const [displayEntries, setDisplayEntries] = useState([]);
+    
+// Erzeuge client für API abfrage und
     const client = createClient({
         space: import.meta.env.VITE_CONTENTFUL_SPACE_ID,
         accessToken: import.meta.env.VITE_CONTENTFUL_ACCESS_TOKEN,
@@ -15,18 +16,21 @@ export default function DataContextProvider({children}) {
 
 // Lade Daten via API in entries
     useEffect(() => {
-        setIsLoading(true);
-        client
+        const fetchData = async () => {
+            setIsLoading(true);
+            client
             .getEntries()
             .then((response) => {
-        setEntries(response.items);
-        setIsLoading(false);
-        console.log(response.items);
-        })
-        .catch((error) => {
-        console.error(error);
-        setIsLoading(false);
-        });
+                setEntries(response.items);
+                setIsLoading(false);
+                console.log(response.items);
+            })
+            .catch((error) => {
+                console.error(error);
+                setIsLoading(false);
+            });
+        }
+        fetchData();
     }, []);
 
 
@@ -37,7 +41,9 @@ export default function DataContextProvider({children}) {
             entries, 
             setEntries, 
             loading, 
-            setIsLoading
+            setIsLoading,
+            displayEntries,
+            setDisplayEntries
             }}
         >
         {children}
