@@ -54,10 +54,9 @@ export default function ListView() {
       </form>
       </div>
     <div className="grid  sm:grid-cols-1 md:grid-cols-4  lg:grid-cols-6 gap-8 p-10 ">
-      {entries.map((item) => {
-        return <ListItem item={item} key={item.fields.id} />;
-      })}
-
+    {displayEntries.map((item) => (
+        <ListItem item={item} key={item.fields.id} />
+      ))}
     </div>
     </>
   );
