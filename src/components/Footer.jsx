@@ -2,7 +2,7 @@ export default function Footer() {
     
     return (
         <>
-            <footer class="bg-white rounded-lg shadow dark:bg-gray-900 m-4">
+            <footer class="bg-white rounded-lg shadow m-4">
                 <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
                     <div class="sm:flex sm:items-center sm:justify-between">
                         <a href="" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
