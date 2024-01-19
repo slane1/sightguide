@@ -13,24 +13,25 @@ export default function ListItem({ item }) {
       //   navigate(`/${route}`);
       // }}
     >
-      <div className="">
-        <img
-          className="  w-full h-56 object-cover object-center rounded-lg  "
-          src={item.fields.images[0].fields.file.url}
-          alt={item.fields.images[0].fields.file.fileName}
-        />
-      </div>
-      <div className="p-5">
-        <h3 className="text-lg font-bold font-Poppins md:text-3xl">
-          {item.fields.name}
-        </h3>
-        <ol className="text-sm">{item.fields.epoche}</ol>
-        <ol className="md:text-2xl">{item.fields.stadt}</ol>
-        <ol className="font-bold md:text-3xl">{item.fields.land}</ol>
-      </div>
       <Link to={`/${route}`} state={{ item: item }}>
-        Show Detail
-      </Link>
+  <div className="">
+    <img
+      className="w-full h-56 object-cover object-center rounded-lg"
+      src={item.fields.images[0].fields.file.url}
+      alt={item.fields.images[0].fields.file.fileName}
+    />
+    <div className="p-5">
+      <h3 className="text-lg font-bold font-Poppins md:text-3xl">
+        {item.fields.name}
+      </h3>
+      <ol className="text-sm">{item.fields.epoche}</ol>
+      <ol className="font-bold md:text-2xl">{item.fields.stadt}</ol>
+      <ol className="md:text-2xl">{item.fields.land}</ol>
+    </div>
+    <div className="flex justify-center items-end">
+    </div>
+  </div>
+</Link>
     </div>
   );
 }
