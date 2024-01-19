@@ -23,13 +23,13 @@ export default function Detail() {
           ))}
         </div>
         <ul className="mb-3">
-          <li><span>Ort: </span>{item.fields.stadt}</li>
-          <li><span>Land: </span>{item.fields.land}</li>
-          <li><span>Bauzeit: </span>{item.fields.bauzeit}</li>
-          <li><span>Epoche: </span>{item.fields.epoche}</li>
-          <li><span>Bauherr </span> {item.fields.bauherr}</li>
+          <li><span className="font-bold">Ort: </span>{item.fields.stadt}</li>
+          <li><span className="font-bold">Land: </span>{item.fields.land}</li>
+          <li><span className="font-bold">Bauzeit: </span>{item.fields.bauzeit}</li>
+          <li><span className="font-bold">Epoche: </span>{item.fields.epoche}</li>
+          <li><span className="font-bold">Bauherr </span> {item.fields.bauherr}</li>
           <li className="mb-4">
-          <span>Geolocation: </span> {item.fields.geolocation.lon + " " + item.fields.geolocation.lat}
+          <span className="font-bold">Geolocation: </span> {item.fields.geolocation.lon + " " + item.fields.geolocation.lat}
           </li>
           <li className="mb-1">{item.fields.beschreibung}</li>
         </ul>
