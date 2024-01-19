@@ -8,44 +8,36 @@ export default function Detail() {
   const location = useLocation();
   console.log("Detail::location: ", location);
   const { item } = location.state;
-  // const { itemPath } = useParams();
-  // const { entries } = useContext(DataContext);
-
-  // let item2 = entries.map((dings) => {
-  //   // console.log(
-  //   //   "hallo",
-  //   //   dings.fields.name.toLowerCase().replaceAll(" ", "-") == itemPath
-  //   // );
-  //   return dings.fields.name.toLowerCase().replaceAll(" ", "-") == itemPath
-  //     ? dings
-  //     : null;
-  // });
-  // const item = item[0];
-  // console.log("Detail::item: ", item);
 
   return (
-    <div className="detail" key={item.fields.id}>
-      <div className="c">
-        <div className="c visual">
-          {item.fields.images.map((img) => {
-            return (
-              <img src={img.fields.file.url} alt={img.fields.file.fileName} />
-            );
-          })}
+    <div className="flex flex-col max-w-[80%]" key={item.fields.id}>
+      <div className="flex flex-col items-center">
+          <h3 className="text-3xl font-bold underline mb-3">{item.fields.name}</h3>
+        <div className="flex flex-row mb-2 space-x-4 justify-center max-w-[20em]">
+          {item.fields.images.map((img, index) => (
+            <img
+              key={index}
+              src={img.fields.file.url}
+              alt={img.fields.file.fileName}
+            />
+          ))}
         </div>
-        <h3 className="text-3xl font-bold underline">{item.fields.name}</h3>
-        <li>{item.fields.epoche}</li>
-        <li>
-          {item.fields.geolocation.lon + " " + item.fields.geolocation.lat}
-        </li>
-        <li>{item.fields.stadt}</li>
-        <li>{item.fields.land}</li>
-        <li>{item.fields.bauzeit}</li>
-        <li>{item.fields.bauherr}</li>
-        <li>{item.fields.beschreibung}</li>
+        <ul className="flex flex-col mb-3">
+          <li><span className="font-bold">Ort: </span>{item.fields.stadt}</li>
+          <li><span className="font-bold">Land: </span>{item.fields.land}</li>
+          <li><span className="font-bold">Bauzeit: </span>{item.fields.bauzeit}</li>
+          <li><span className="font-bold">Epoche: </span>{item.fields.epoche}</li>
+          <li><span className="font-bold">Bauherr </span> {item.fields.bauherr}</li>
+          <li className="mb-4">
+          <span className="font-bold">Geolocation: </span> {item.fields.geolocation.lon + " " + item.fields.geolocation.lat}
+          </li>
+          <li className="mb-1">{item.fields.beschreibung}</li>
+        </ul>
       </div>
       <br />
-      <Map geolocation={item.fields.geolocation} />
+      <div>
+        <Map geolocation={item.fields.geolocation} />
+      </div>
     </div>
   );
 }
