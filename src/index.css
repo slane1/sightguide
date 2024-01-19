@@ -15,7 +15,7 @@ body {
 
 .detail {
   display: flex;
-  /* flex-direction: column; */
+  flex-direction: column;
   width: 80vw;
   min-width: 12em;
   max-width: 100rem;
