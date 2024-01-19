@@ -53,8 +53,8 @@ export default function ListView() {
     </button>
       </form>
       </div>
-      <div className="grid  md:grid-cols-1 lg:grid-cols-6 gap-8 ">
-      {displayEntries.map((item) => (
+    <div className="grid  sm:grid-cols-1 md:grid-cols-4  lg:grid-cols-6 gap-8 p-10 ">
+    {displayEntries.map((item) => (
         <ListItem item={item} key={item.fields.id} />
       ))}
     </div>
