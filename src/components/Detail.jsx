@@ -22,7 +22,7 @@ export default function Detail() {
             />
           ))}
         </div>
-        <ul className="mb-3">
+        <ul className="flex flex-col mb-3">
           <li><span className="font-bold">Ort: </span>{item.fields.stadt}</li>
           <li><span className="font-bold">Land: </span>{item.fields.land}</li>
           <li><span className="font-bold">Bauzeit: </span>{item.fields.bauzeit}</li>
