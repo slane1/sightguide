@@ -6,7 +6,6 @@ import React from "react";
 
 export default function Detail() {
   const location = useLocation();
-  console.log("Detail::location: ", location);
   const { item } = location.state;
 
   return (
@@ -17,8 +16,10 @@ export default function Detail() {
           {item.fields.images.map((img, index) => (
             <img
               key={index}
-              src={img.fields.file.url}
-              alt={img.fields.file.fileName}
+              // src={img.fields.file.url}
+              // alt={img.fields.file.fileName}
+              src={img.url}
+              alt={img.fileName}
             />
           ))}
         </div>
@@ -29,7 +30,7 @@ export default function Detail() {
           <li><span className="font-bold">Epoche: </span>{item.fields.epoche}</li>
           <li><span className="font-bold">Bauherr </span> {item.fields.bauherr}</li>
           <li className="mb-4">
-          <span className="font-bold">Geolocation: </span> {item.fields.geolocation.lon + " " + item.fields.geolocation.lat}
+          <span className="font-bold">Geolocation: </span> {item.fields.geolocation[0].lon + " latitude und " + item.fields.geolocation[0].lat + " longitude"}
           </li>
           <li className="mb-1">{item.fields.beschreibung}</li>
         </ul>

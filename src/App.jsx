@@ -10,9 +10,7 @@ export default function App() {
 
   return (
     <>
-      <h1 className=" p-11   font-Poppins  sm:text-3x1 md:text-6xl ">
-        Sightguide
-      </h1>
+      <h1 className="p-11 font-Poppins sm:text-3x1 md:text-6xl">Sightguide</h1>
       {loading ? (
         <p>Loading...</p>
       ) : (
