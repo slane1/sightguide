@@ -13,12 +13,13 @@ export default function Map({ geolocation }) {
     popupAnchor: [1, -34],
     shadowSize: [41, 41],
   });
-
+  // console.log("geo from map",geolocation[0].lat);
+  
   return (
-    geolocation && (
+        geolocation && (
       <div className="flex justify-center w-full">
         <MapContainer
-          center={[geolocation.lat, geolocation.lon]}
+          center={[geolocation[0].lat, geolocation[0].lon]}
           zoom={13}
           scrollWheelZoom={false}
           style={{ width: "100%", height: "50vh" }}
@@ -27,10 +28,10 @@ export default function Map({ geolocation }) {
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-          <Marker position={[geolocation.lat, geolocation.lon]} icon={icon}>
+          <Marker position={[geolocation[0].lat, geolocation[0].lon]} icon={icon}>
             <Popup>
-              <p>{geolocation.lat}</p>
-              <p>{geolocation.lon}</p>
+              <p>{geolocation[0].lat}</p>
+              <p>{geolocation[0].lon}</p>
             </Popup>
           </Marker>
         </MapContainer>

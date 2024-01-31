@@ -1,0 +1,36 @@
+export default function logIt(item) {
+    console.log("{");
+    console.log(`"id" ${":"} "${item.fields.id}",`);
+    console.log(`"name" ${":"} "${item.fields.name}",`);
+    console.log(`"stadt" ${":"} "${item.fields.stadt}",`);
+    console.log(`"land" ${":"} "${item.fields.land}",`);
+    console.log(`"epoche" ${":"} "${item.fields.epoche}",`);
+    console.log(`"bauzeit" ${":"} "${item.fields.bauzeit}",`);
+    console.log(`"bauherr" ${":"} "${item.fields.bauherr}",`);
+    console.log(`"beschreibung" ${":"} "${item.fields.beschreibung}",`);
+    console.log(`"images" ${":"} [`);
+    console.log("{");
+    console.log(`"title" ${":"} "${item.fields.images[0].fields.title}",`);
+    console.log(`"url" ${":"} "${item.fields.images[0].fields.file.url}",`);
+    console.log(`"fileName" ${":"} "${item.fields.images[0].fields.file.fileName}"`);
+    console.log("},");
+    console.log("{");
+    console.log(`"title" ${":"} "${item.fields.images[1].fields.title}",`);
+    console.log(`"url" ${":"} "${item.fields.images[1].fields.file.url}",`);
+    console.log(`"fileName" ${":"} "${item.fields.images[1].fields.file.fileName}"`);
+    console.log("},");
+    console.log("{");
+    console.log(`"title" ${":"} "${item.fields.images[2].fields.title}",`);
+    console.log(`"url" ${":"} "${item.fields.images[2].fields.file.url}",`);
+    console.log(`"fileName" ${":"} "${item.fields.images[2].fields.file.fileName}"`);
+    console.log("}");
+    console.log("],");
+    console.log(`"geolocation" ${":"}`);
+    console.log("[");
+    console.log("{");
+    console.log(`"lon" ${":"} "${item.fields.geolocation.lon}",`);
+    console.log(`"lat" ${":"} "${item.fields.geolocation.lat}"`);
+    console.log("}");
+    console.log("]");
+    console.log("},");
+}
