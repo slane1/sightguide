@@ -5,8 +5,9 @@ import fs from 'fs';
 const fetchAllDatabase = async (req, res, next) => {
     try {
         const data = await pool.query('SELECT * FROM sights');
-        console.log(data);
-        res.json(data.rows);
+        // console.log(data.rows);
+        res.send(data.rows);
+        // res.send(JSON.parse(data.rows));
     } catch (error) {
         res.status(500).json({ message: 'something broke' });
     }
@@ -41,16 +42,104 @@ VALUES
     );`);
 }
 
+let time = 0;
+
 const pushData = async (req, res, next) => {
-    
-    let time = 0;
 
     theARRAYYY.map(el => {
+        console.log(time);
+        
+        try {
+            setTimeout(dbQuery, time, el, time);
+            time += 500;
+
+        } catch (error) {
+            console.log('something broke');
+        }
+        // res.send("So much data");
+    });
+}
+
+
+// Image pusher
+
+const dbQueryImg = async (img, time, index, sightid) => {
+    const startTime = time;
+    console.log("try:",startTime,"sightid:",sightid, "index:",index, img.title);
+
+    pool.query(`INSERT INTO
+    images (
+        id,
+        sightid,
+        filename,
+        title,
+        url
+        )
+VALUES
+    (
+        ${index},
+        ${sightid},
+        '${img.fileName}',
+        '${img.title}',
+        '${img.url}'
+    );`);
+}
+
+
+
+const pushImage = async (req, res, next) => {
+    
+    let time = 0;
+    let index = 0;
+
+    theARRAYYY.map((el) => {
         console.log(time);
         time += 1000;
 
         try {
-            setTimeout(dbQuery, time, el, time);
+            el.fields.images.map((img,) => {
+                 index++;
+                setTimeout(dbQueryImg, time, img, time, index, el.fields.id);
+              })
+
+        } catch (error) {
+            console.log('something broke');
+        }
+        // res.send("So much data");
+    });
+}
+
+// long pusher
+
+const dbQueryGeo = async (el, time, index) => {
+    const st = time;
+    console.log("try: ", + el.fields.id,"QUARK", st);
+
+    pool.query(`INSERT INTO
+    location (
+        id,
+        sightid,
+        lat,
+        lon
+    )
+VALUES
+    (
+        ${index},
+        '${el.fields.id}',
+        '${el.fields.geolocation.lat}',
+        '${el.fields.geolocation.lon}'
+    );`);
+}
+
+
+const pushGeo = async (req, res, next) => {
+
+    theARRAYYY.map((el, index) => {
+        console.log(time,index);
+        
+        try {
+            setTimeout(dbQueryGeo, time, el, time, index);
+            time += 500;
 
         } catch (error) {
             console.log('something broke');
@@ -61,9 +150,18 @@ const pushData = async (req, res, next) => {
 
 export {
     fetchAllDatabase,
-    pushData
+    pushData,
+    pushImage,
+    pushGeo,
 }
 
+
+
+
+
+
+
+// general array
 const theARRAYYY = [
     {
         fields: {

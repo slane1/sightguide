@@ -43,6 +43,6 @@ CREATE TABLE images (
 CREATE TABLE location (
     id INTEGER PRIMARY KEY,
     sightid INTEGER REFERENCES sights(id),
-    lat DECIMAL(8, 6),
-    lon DECIMAL(9, 6)
+    lat NUMERIC(8, 6),
+    lon NUMERIC(9, 6)
 );

@@ -21,7 +21,7 @@ export default function DataContextProvider({ children }) {
       setIsLoading(true);
       try {
         Axios.get("http://localhost:3000/all").then((res) => {
-          // console.log(res.data);
+          console.log(res.data);
           setEntries(res.data);
           setIsLoading(false);
         });
