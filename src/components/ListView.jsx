@@ -11,14 +11,14 @@ export default function ListView() {
     if (searchTerm) {
       const filteredEntries = entries.filter(
         (item) =>
-          item.fields.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          item.fields.stadt.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          item.fields.land.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          item.fields.epoche.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          item.fields.bauzeit
+          item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          item.stadt.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          item.land.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          item.epoche.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          item.bauzeit
             .toLowerCase()
             .includes(searchTerm.toLowerCase()) ||
-          item.fields.bauherr.toLowerCase().includes(searchTerm.toLowerCase())
+          item.bauherr.toLowerCase().includes(searchTerm.toLowerCase())
       );
       setDisplayEntries(filteredEntries);
     } else {
@@ -57,7 +57,7 @@ export default function ListView() {
       </div>
       <div className="grid  sm:grid-cols-1 md:grid-cols-4  lg:grid-cols-6 gap-8 p-10 ">
         {displayEntries.map((item) => (
-          <ListItem item={item} key={item.fields.id} />
+          <ListItem item={item} key={item.id} />
         ))}
       </div>
     </>
