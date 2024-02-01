@@ -11,7 +11,7 @@ export default function DataContextProvider({ children }) {
 
   // Erzeuge client für API abfrage und
   // const client = createClient({
-  //   space: import.meta.env.VITE_CONTENTFUL_SPACE_ID,
+    // space: import.meta.env.VITE_CONTENTFUL_SPACE_ID,
   //   accessToken: import.meta.env.VITE_CONTENTFUL_ACCESS_TOKEN,
   // });
 
@@ -20,7 +20,7 @@ export default function DataContextProvider({ children }) {
     const fetchData = async () => {
       setIsLoading(true);
       try {
-        Axios.get("http://localhost:8000").then((res) => {
+        Axios.get("http://localhost:3000/all").then((res) => {
           // console.log(res.data);
           setEntries(res.data);
           setIsLoading(false);
