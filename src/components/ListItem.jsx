@@ -18,8 +18,6 @@ export default function ListItem({ item }) {
         <div className="">
           <img
             className="w-full h-56 object-cover object-center rounded-lg"
-            // src={item.fields.images[0].fields.file.url}
-            // alt={item.fields.images[0].fields.file.fileName}
             src={item.images[0].url}
             alt={item.images[0].fileName}
           />

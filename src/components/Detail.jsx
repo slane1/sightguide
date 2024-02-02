@@ -37,7 +37,7 @@ export default function Detail() {
       </div>
       <br />
       <div>
-        {/* <Map geolocation={item.geolocation} /> */}
+        <Map geolocation={item.geolocation} />
       </div>
     </div>
   );

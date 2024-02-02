@@ -34,22 +34,31 @@ const fetchAllDatabase = async (req, res, next) => {
 
 const fetchSightImg = async (req, res, next) => {
     try { const query = `
-        SELECT
-            sights.id,
-            sights.*,
-            JSON_AGG(
-                JSON_BUILD_OBJECT(
-                    'id', images.id,
-                    'filename', images.filename,
-                    'title', images.title,
-                    'url', images.url
-                )
-            ) AS images
-        FROM
-            sights
-        LEFT JOIN
-            images ON sights.id = images.sightid
-        GROUP BY
+    SELECT
+        sights.id,
+        sights.*,
+    JSON_AGG(
+        JSON_BUILD_OBJECT(
+            'id', images.id,
+            'filename', images.filename,
+            'title', images.title,
+            'url', images.url
+        )
+    ) AS images,
+    JSON_AGG(
+        JSON_BUILD_OBJECT(
+            'id', location.id,
+            'lon', location.lon,
+            'lat', location.lat
+        )
+    ) AS geolocation
+    FROM
+        sights
+    LEFT JOIN
+        images ON sights.id = images.sightid
+    LEFT JOIN
+        location ON sights.id = location.sightid
+    GROUP BY
         sights.id;`;
     const { rows } = await pool.query(query);
     res.send(rows);
