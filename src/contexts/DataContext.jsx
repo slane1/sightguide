@@ -20,7 +20,7 @@ export default function DataContextProvider({ children }) {
     const fetchData = async () => {
       setIsLoading(true);
       try {
-        Axios.get("http://localhost:3000/all").then((res) => {
+        Axios.get("http://localhost:3000/complete").then((res) => {
           console.log(res.data);
           setEntries(res.data);
           setIsLoading(false);

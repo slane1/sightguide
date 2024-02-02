@@ -13,7 +13,7 @@ export default function Detail() {
       <div className="flex flex-col items-center">
           <h3 className="text-3xl font-bold underline mb-3">{item.name}</h3>
         <div className="flex flex-row mb-2 space-x-4 justify-center max-w-[20em]">
-          {/* {item.fields.images.map((img, index) => (
+          {item.images.map((img, index) => (
             <img
               key={index}
               // src={img.fields.file.url}
@@ -21,7 +21,7 @@ export default function Detail() {
               src={img.url}
               alt={img.fileName}
             />
-          ))} */}
+          ))}
         </div>
         <ul className="flex flex-col mb-3">
           <li><span className="font-bold">Ort: </span>{item.stadt}</li>

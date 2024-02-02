@@ -16,13 +16,13 @@ export default function ListItem({ item }) {
     >
       <Link to={`/${route}`} state={{ item: item }}>
         <div className="">
-          {/* <img
+          <img
             className="w-full h-56 object-cover object-center rounded-lg"
             // src={item.fields.images[0].fields.file.url}
             // alt={item.fields.images[0].fields.file.fileName}
-            src={item.fields.images[0].url}
-            alt={item.fields.images[0].fileName}
-          /> */}
+            src={item.images[0].url}
+            alt={item.images[0].fileName}
+          />
           <div className="p-5">
             <h3 className="text-lg font-bold font-Poppins md:text-3xl">
               {item.name}

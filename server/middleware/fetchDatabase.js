@@ -13,6 +13,54 @@ const fetchAllDatabase = async (req, res, next) => {
     }
 }
 
+// const fetchSightImg = async (req, res, next) => {
+//     try {
+//         const data = await pool.query('SELECT * FROM sights LEFT JOIN images on sights.id = images.sightid');
+//         res.send(data.rows);
+//     } catch (error) {
+//         res.status(500).json({ message: 'something broke' });
+//     }
+// }
+// const fetchSightImg = async (req, res, next) => {
+//     try {
+//         const data = await pool.query(
+//             'SELECT sights.*, images.id AS images_id, images.filename AS images_filename, images.title AS images_title, images.url AS images_url FROM sights LEFT JOIN images on sights.id = images.sightid');
+//         res.send(data.rows);
+//     } catch (error) {
+//         res.status(500).json({ message: 'something broke' });
+//     }
+// }
+
+
+const fetchSightImg = async (req, res, next) => {
+    try { const query = `
+        SELECT
+            sights.id,
+            sights.*,
+            JSON_AGG(
+                JSON_BUILD_OBJECT(
+                    'id', images.id,
+                    'filename', images.filename,
+                    'title', images.title,
+                    'url', images.url
+                )
+            ) AS images
+        FROM
+            sights
+        LEFT JOIN
+            images ON sights.id = images.sightid
+        GROUP BY
+        sights.id;`;
+    const { rows } = await pool.query(query);
+    res.send(rows);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'something broke' });
+    }
+};
+
+
+
 
 const dbQuery = async (el,time) => {
     const st = time;
@@ -153,6 +201,7 @@ export {
     pushData,
     pushImage,
     pushGeo,
+    fetchSightImg
 }
 
 
