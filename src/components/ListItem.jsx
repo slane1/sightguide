@@ -20,8 +20,8 @@ export default function ListItem({ item }) {
             className="w-full h-56 object-cover object-center rounded-lg"
             // src={item.fields.images[0].fields.file.url}
             // alt={item.fields.images[0].fields.file.fileName}
-            src={item.url}
-            alt={item.fileName}
+            src={item.images[0].url}
+            alt={item.images[0].fileName}
           />
           <div className="p-5">
             <h3 className="text-lg font-bold font-Poppins md:text-3xl">
